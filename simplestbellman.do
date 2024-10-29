@@ -1,4 +1,7 @@
+**Numerical solution of the Bellman equation
 **bellman方程数值求解
+
+**The Bellman equation looks like this:
 **bellman方程形如：V(k) = ln(k^alpha) + V(k')
 
 clear
