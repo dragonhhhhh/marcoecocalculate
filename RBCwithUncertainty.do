@@ -51,11 +51,11 @@ mata
 	delta = 0.08
 	gamma = 2
     tol = 1e-6     // 收敛容忍度
-    max_iter = 200 // 最大迭代次数
+    max_iter = 500 // 最大迭代次数
     // 定义资本存量网格
-    k_min = 0.05   // 最小资本存量
+    k_min = 0.02   // 最小资本存量
     k_max = 10   // 最大资本存量
-    k_grid = range(k_min, k_max, 0.05)
+    k_grid = range(k_min, k_max, 0.02)
     n_k = rows(k_grid)     // 网格点数量
 	V1 = J(n_k, 1, 0) // 初始价值函数为0
 	V_new1 = V1       // 用于更新的价值函数
@@ -150,9 +150,6 @@ st_matrix("V3", V3)
 
 end
 
-
-matrix list kpolicy
-matrix list kgrid
 clear
 svmat kgrid,names(k)
 svmat kpolicy1,names(kpolicy1)
