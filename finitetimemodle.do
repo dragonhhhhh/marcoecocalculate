@@ -1,5 +1,10 @@
 ********* Finite time *********
 
+*The code in this document can implement Professor Jie Luo's MATLAB script `dynamic_finite_model.m`.
+
+
+
+
 
 **# 函数、参数设定
 program drop _all
@@ -17,6 +22,7 @@ mata
 	step  = 0
 	c1_min= 0.0001
 	max_step=1000
+	toleration = 0.0001
 end
 
 mata
@@ -84,7 +90,14 @@ for (step = 1; step <= max_step; step++){
 	}				 //初始的c1太低了，调高c1
 	step = step + 1
 }
+
+if (abs(K[51])<toleration = 0.0001){
+	C[51]=.
+	K[51]=.
+}
+
 C
+K
 end
 
 matrix drop _all
@@ -93,7 +106,7 @@ st_matrix("Consumption",C)
 st_matrix("Kapital",K)
 end
 
-
+clear
 svmat Consumption,names(C)
 svmat Kapital,names(K)
 gen t = _n
